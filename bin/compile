@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/bash
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 echo "-----> Getting a fresh copy of Rust"
 curl https://sh.rustup.rs -sSf | sh -y
