@@ -4,17 +4,14 @@ echo "-----> Getting a fresh copy of Rust"
 curl https://sh.rustup.rs -sSf | sh -y
 MANPATH=$1/Cargo.toml
 echo "-----> Manifest Path: $MANPATH"
-APPNAME=""
 echo "-----> Capturing the app name"
 while read l; do
   if beginswith "name = " "$l"; then
-  echo $l
-    APPNAME="${l:7}"
+    export APPNAME="${l:7}"
     break
   fi
 done <$MANPATH
 echo "-----> App Name: $APPNAME"
-export APPNAME
 echo "-----> Building the project"
 cargo build --release --manifest-path $MAN_PATH
 echo "-----> Copying the binary to the build dir"
