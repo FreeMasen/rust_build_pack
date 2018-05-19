@@ -16,6 +16,6 @@ while read l; do
 done <$MANPATH
 echo "-----> App Name: $RUSTAPPNAME"
 echo "-----> Building the project"
-cargo build --release --manifest-path $MAN_PATH
+~/.cargo/bin/cargo build --release --manifest-path $MAN_PATH
 echo "-----> Copying the binary to the build dir"
 cp $1/target/release/$RUSTAPPNAME $1/$RUSTAPPNAME
