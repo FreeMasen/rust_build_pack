@@ -9,7 +9,7 @@ while read l; do
   if beginswith "name = " "$l"; then
 
     echo "-----> Found App Name $l"
-    export RUSTAPPNAME="$(${l:7})"
+    export RUSTAPPNAME="${l:7}"
     break
   fi
 done <$MANPATH
