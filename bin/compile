@@ -9,7 +9,7 @@ echo "-----> Capturing the app name"
 while read l; do
   if beginswith "name = " "$l"; then
   echo $l
-    APPNAME="$(cut -d' ' -f 3 <<< $l)"
+    APPNAME="${l:7}"
     break
   fi
 done <$MANPATH
