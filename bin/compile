@@ -7,7 +7,7 @@ echo "-----> Manifest Path: $MANPATH"
 echo "-----> Capturing the app name"
 while read l; do
   if beginswith "name = " "$l"; then
-    export APPNAME="${l:7}"
+    export RUSTAPPNAME="${l:7}"
     break
   fi
 done <$MANPATH
@@ -15,4 +15,4 @@ echo "-----> App Name: $APPNAME"
 echo "-----> Building the project"
 cargo build --release --manifest-path $MAN_PATH
 echo "-----> Copying the binary to the build dir"
-cp $1target/release/$NAME $1$NAME
+cp $1/target/release/$RUSTAPPNAME $1/$RUSTAPPNAME
