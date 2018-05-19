@@ -8,7 +8,7 @@ APPNAME=""
 echo "-----> Capturing the app name"
 while read l; do
   if beginswith "name = " "$l"; then
-    APPNAME=${l/name =/""}
+    APPNAME=${l/"name ="/""}
     break
   fi
 done <$MANPATH
