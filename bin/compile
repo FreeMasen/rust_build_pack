@@ -13,7 +13,7 @@ while read l; do
     break
   fi
 done <$MANPATH
-echo "-----> App Name: $APPNAME"
+echo "-----> App Name: $RUSTAPPNAME"
 echo "-----> Building the project"
 cargo build --release --manifest-path $MAN_PATH
 echo "-----> Copying the binary to the build dir"
