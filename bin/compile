@@ -1,7 +1,7 @@
 #! /bin/bash
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 echo "-----> Getting a fresh copy of Rust"
-#curl https://sh.rustup.rs -sSf >> $1/ru.sh
+curl https://sh.rustup.rs -sSf >> $1/ru.sh
 sh $1/ru.sh -y
 MANPATH=$1/Cargo.toml
 echo "-----> Manifest Path: $MANPATH"
@@ -17,6 +17,6 @@ while read l; do
 done <$MANPATH
 echo "-----> App Name: $RUSTAPPNAME"
 echo "-----> Building the project"
-#~/.cargo/bin/cargo build --manifest-path $MANPATH --release
+~/.cargo/bin/cargo build --manifest-path $MANPATH --release
 echo "-----> Copying the binary to the build dir"
 cp $1/target/release/$RUSTAPPNAME $1/$RUSTAPPNAME
