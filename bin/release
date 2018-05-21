@@ -1,5 +1,13 @@
 #! /bin/bash
-
+MANPATH=$1/Cargo.toml
+while read l; do
+  if beginswith "name = " "$l"; then
+    echo "-----> Found App Name $l"
+    RUSTAPPNAME=${l:8}
+    RUSTAPPNAME=${RUSTAPPNAME::${#RUSTAPPNAME}-1}
+    break
+  fi
+done <$MANPATH
 cat << EOF
 ---
 default_process_types:
