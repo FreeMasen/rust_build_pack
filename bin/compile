@@ -3,6 +3,7 @@ beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 echo "-----> Getting a fresh copy of Rust"
 curl https://sh.rustup.rs -sSf >> $1/ru.sh
 sh $1/ru.sh -y
+export PATH="$PATH:~/.cargo/bin"
 MANPATH=$1/Cargo.toml
 echo "-----> Manifest Path: $MANPATH"
 echo "-----> Capturing the app name"
