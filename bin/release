@@ -1,4 +1,5 @@
 #! /bin/bash
+echo "------> Starting release $1"
 MANPATH=$1/Cargo.toml
 while read l; do
   if beginswith "name = " "$l"; then
