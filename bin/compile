@@ -15,5 +15,5 @@ while read l; do
 done <$MANPATH
 echo "-----> Building the project"
 ~/.cargo/bin/cargo build --manifest-path $MANPATH --release
-echo "-----> Copying the binary to the build dir"
-cp $1/target/release/$RUSTAPPNAME $1/RUSTAPP
+echo "-----> Moving the binary to the build dir"
+mv $1/target/release/$RUSTAPPNAME $1/RUSTAPP

@@ -11,9 +11,11 @@ This is a minimal rust build pack for Heroku. The build pack will look for the e
   - It does this by looping over each line and looking for the first one that begins with "name = "
   - Once found it removes this prefix
 - It will run `cargo build --release`
-- Once the application is complete it will copy the result into the root directory as `RUSTAPP`
-  - `cp $1/target/release/[app name] ./RUSTAPP`
+- Once the application is compiled it will move the result into the root directory as `RUSTAPP`
+  - `mv $1/target/release/[app name] ./RUSTAPP`
   - The app name is what we captured from the `Cargo.toml` file
+  - This is done to avoid any issues with path resolution
+    - `cargo run` will allow you to use paths relative to the crate root but executing directly from the `target` directory will fail to resolve the same paths
 - Upon release it will attempt to start the application as a web service
 
 ## notes
