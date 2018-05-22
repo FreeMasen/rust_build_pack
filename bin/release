@@ -1,15 +1,6 @@
 #! /bin/bash
-echo "------> Starting release $1"
-while read l; do
-  if beginswith "name = " "$l"; then
-    echo "-----> Found App Name $l"
-    RUSTAPPNAME=${l:8}
-    RUSTAPPNAME=${RUSTAPPNAME::${#RUSTAPPNAME}-1}
-    break
-  fi
-done <$1/Cargo.toml
 cat << EOF
 ---
 default_process_types:
-  web: ./$RUSTAPPNAME
+  web: ./RUSTAPP
 EOF

@@ -1,7 +1,6 @@
 #! /bin/bash
-echo "-----> BUILD_DIR: $1"
 if [ -f $1/Cargo.toml ]; then
-    echo "RustProject"
+    echo "Rust"
     exit 0
 else
     exit 1
