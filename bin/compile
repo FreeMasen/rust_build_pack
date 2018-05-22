@@ -17,3 +17,4 @@ echo "-----> Building the project"
 ~/.cargo/bin/cargo build --manifest-path $MANPATH --release
 echo "-----> Copying the binary to the build dir"
 cp $1/target/release/$RUSTAPPNAME $1/RUSTAPP
+ls
