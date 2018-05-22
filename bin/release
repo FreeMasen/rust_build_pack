@@ -2,5 +2,5 @@
 cat << EOF
 ---
 default_process_types:
-  web: ./RUSTAPP $PORT
+  web: ./RUSTAPP
 EOF
